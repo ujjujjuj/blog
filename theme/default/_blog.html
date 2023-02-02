@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ description }}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:type" content="{{ title }}" />
+    <meta property="og:image" content="
+    /default.jpg" />
+    <meta property="og:url" content="{{ slug }}" />
+    <meta property="og:site_name" content="{{ owher }}'s blog"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <title>{{ title }} | {{ owner }}'s blog</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" type="text/css" href="/style.css" />
   </head>
   <body>
@@ -21,7 +29,7 @@
       </div>
       <hr />
       <div class="blog">
-        <h1>{{ title }}</h1>
+        <h1>{{{ title }}}</h1>
         <p class="blog-info">
           <a href="{{{ authorLink }}}" target="_blank">{{ author }}</a> on {{
           date }}

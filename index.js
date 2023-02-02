@@ -19,6 +19,7 @@ const build = () => {
   fs.rmSync("./build", { recursive: true, force: true });
   fs.mkdirSync("./build");
   fs.copySync(`theme/${config.theme}/static/`, "build/");
+  fs.copySync(`content/media/`, "build/");
 
   //////
   console.log("Compiling templates");
@@ -35,6 +36,7 @@ const build = () => {
     let parsedContent = marked.parse(content.slice(content.indexOf("#")));
     const slug = parsedContent.split('id="')[1].split('"')[0];
     const title = parsedContent.split('">')[1].split("</h1>")[0];
+    // const description = undefined;
 
     parsedContent = parsedContent.split("</h1>\n")[1];
 
@@ -47,6 +49,7 @@ const build = () => {
         author,
         authorLink,
         date,
+        slug
       })
     );
 
