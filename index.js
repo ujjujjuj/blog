@@ -24,7 +24,7 @@ const build = () => {
   console.log("Compiling templates");
 
   let blogs = [];
-  for (const blog of fs.readdirSync("content/blogs/")) {
+  for (const blog of fs.readdirSync("content/blogs/").filter(filename => filename[0] !== "_")) {
     const content = fs.readFileSync(`content/blogs/${blog}`).toString();
 
     const [author, authorLink, date] = content
