@@ -10,6 +10,11 @@
   --fg-bright: #ffffff;
   --fg-dull: #ffffff80;
   --fg2: #2bbc8a;
+  --highlight: #6bd0ad;
+}
+
+::selection {
+  background: var(--highlight);
 }
 
 body {
@@ -27,6 +32,10 @@ body {
 
 h1 {
   margin: 1rem 0;
+  color: var(--fg2);
+}
+
+h2 {
   color: var(--fg2);
 }
 
