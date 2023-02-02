@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #1a1a28;
+  --fg1: #ffffffc0;
+  --fg-bright: #ffffff;
+  --fg-dull: #ffffff80;
+  --fg2: #2bbc8a;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--fg1);
+  font-family: "Ubuntu Mono", monospace;
+  text-align: justify;
+}
+
+h1 {
+  margin: 1rem 0;
+  color: var(--fg2);
+}
+
+hr {
+  margin: 1.6rem 0;
+  width: 80%;
+  align-self: flex-start;
+  border-color: var(--fg2);
+}
+a {
+  text-decoration: none;
+  text-decoration: underline;
+  color: var(--fg1);
+}
+
+.bright {
+  color: var(--fg-bright);
+}
+
+#root {
+  width: 90vw;
+  flex: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.4rem;
+}
+
+#root > div {
+  width: 100%;
+}
+
+.back {
+  cursor: pointer;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+}
+.back button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--fg2);
+  color: white;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.blog {
+  width: 100%;
+}
+.blog-info {
+  align-self: flex-start;
+  margin-top: -0.6rem;
+  color: var(--fg-dull);
+  margin-bottom: 2rem;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.blog-list > div {
+  margin: 0.4rem 0;
+}
+.blog-list span {
+  color: var(--fg-dull);
+  margin-right: 1rem;
+}
+
+footer {
+  justify-self: end;
+  height: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-bottom: 2.4rem;
+}
+
+footer > div {
+  width: 90vw;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
