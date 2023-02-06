@@ -28,12 +28,9 @@
     </div>
     <footer>
       <div>
-        <p><a href="https://ujwl.in/" target="_blank">website</a></p>
-        <p>
-          <a href="https://www.buymeacoffee.com/ujjujjuj/" target="_blank"
-            >coffee?</a
-          >
-        </p>
+        {{ #links }}
+        <p><a href="{{{ url }}}" target="_blank">{{ text }}</a></p>
+        {{ /links}}
       </div>
     </footer>
   </body>

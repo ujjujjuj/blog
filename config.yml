@@ -1,2 +1,7 @@
 owner: ujjujjuj
 theme: default
+links:
+  - text: website
+    url: https://ujwl.in/
+  - text: coffee?
+    url: https://www.buymeacoffee.com/ujjujjuj/

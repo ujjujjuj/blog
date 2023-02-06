@@ -25,7 +25,9 @@ const build = () => {
   console.log("Compiling templates");
 
   let blogs = [];
-  for (const blog of fs.readdirSync("content/blogs/").filter(filename => filename[0] !== "_")) {
+  for (const blog of fs
+    .readdirSync("content/blogs/")
+    .filter((filename) => filename[0] !== "_")) {
     const content = fs.readFileSync(`content/blogs/${blog}`).toString();
 
     const [author, authorLink, date] = content
@@ -36,7 +38,7 @@ const build = () => {
     let parsedContent = marked.parse(content.slice(content.indexOf("#")));
     const slug = parsedContent.split('id="')[1].split('"')[0];
     const title = parsedContent.split('">')[1].split("</h1>")[0];
-    // const description = undefined;
+    const description = "";
 
     parsedContent = parsedContent.split("</h1>\n")[1];
 
@@ -46,10 +48,11 @@ const build = () => {
         ...config,
         content: parsedContent,
         title,
+        description,
         author,
         authorLink,
         date,
-        slug
+        slug,
       })
     );
 
@@ -62,7 +65,7 @@ const build = () => {
     "build/index.html",
     Mustache.render(homeTemplate, {
       ...config,
-      content: marked.parse(fs.readFileSync("content/_index.md").toString()),
+      content: marked.parse(fs.readFileSync("content/index.md").toString()),
       blogs,
     })
   );
