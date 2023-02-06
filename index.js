@@ -79,7 +79,7 @@ const build = () => {
   //
   console.log("Generating RSS feed");
   const blogXml = blogs.map((blog) => {
-    blog.link = config.url + blog.slug;
+    blog.link = config.url + "/" + blog.slug;
     blog.date = new Date(blog.date).toUTCString();
     return blog;
   });
