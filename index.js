@@ -45,6 +45,7 @@ const build = () => {
     const slug = parsedContent.split('id="')[1].split('"')[0];
     const title = content.split("#")[1].split("\n")[0];
     const description = getDesc(parsedContent);
+    const link = config.url + "/" + slug;
 
     parsedContent = parsedContent.split("</h1>\n")[1];
 
@@ -59,10 +60,11 @@ const build = () => {
         authorLink,
         date,
         slug,
+        link,
       })
     );
 
-    blogs.push({ title, author, slug, date, description });
+    blogs.push({ title, author, slug, date, description, link });
   }
 
   blogs.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -79,7 +81,6 @@ const build = () => {
   //
   console.log("Generating RSS feed");
   const blogXml = blogs.map((blog) => {
-    blog.link = config.url + "/" + blog.slug;
     blog.date = new Date(blog.date).toUTCString();
     return blog;
   });
