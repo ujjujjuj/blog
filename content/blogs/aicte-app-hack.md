@@ -1,8 +1,10 @@
-[](ujjujjuj)
-[](https://ujwl.in)
-[](2023-02-04)
-
-# Hacking AICTE's "Happiness App"
+---
+author: 
+  name: ujjujjuj
+  url: https://ujwl.in
+date: "2023-02-04"
+title: Hacking AICTE's "Happiness App"
+---
 
 A few months back, my college sent every student an email asking us to download an app called _YOL - YourOneLife_ which claims to be approved by AICTE. For those of you who don't know, AICTE stands for the All India Council for Technical Education. I don't exactly know what this council does but it comes under the Indian ministry of education so it must be something serious.
 <br />

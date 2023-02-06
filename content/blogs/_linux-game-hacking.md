@@ -1,7 +1,9 @@
-[](ujjujjuj)
-[](https://ujwl.in)
-[](2023-02-02)
-
-# Game Hacking on Linux
+---
+author: 
+  name: ujjujjuj
+  url: https://ujwl.in
+date: "2023-02-02"
+title: Game Hacking on Linux
+---
 
 Coming soon...

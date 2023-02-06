@@ -35,7 +35,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
   </head>
   <body>
     <div id="root">
@@ -47,7 +47,7 @@
       <div class="blog">
         <h1>{{{ title }}}</h1>
         <p class="blog-info">
-          <a href="{{{ authorLink }}}" target="_blank">{{ author }}</a> on {{
+          <a href="{{{ author.link }}}" target="_blank">{{ author.name }}</a> on {{
           date }}
         </p>
         <p>{{{ content }}}</p>

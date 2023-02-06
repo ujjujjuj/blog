@@ -1,9 +1,10 @@
-[](ujjujjuj)
-[](https://ujwl.in)
-[](2023-02-01)
-
-# Why?
-
+---
+author: 
+  name: ujjujjuj
+  url: https://ujwl.in
+date: "2023-02-02"
+title: Why?
+---
 i dont know why i created this thing i was bored ( :( ). i'll probably post technical guides about stuff im learning and other things i find interesting. will also document some of my older projects here so they dont go to waste.
 <br />
 <br />

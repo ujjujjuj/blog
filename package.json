@@ -12,7 +12,8 @@
     "fs-extra": "^11.1.0",
     "js-yaml": "^4.1.0",
     "marked": "^4.2.12",
-    "mustache": "^4.2.0"
+    "mustache": "^4.2.0",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "serve": "^14.2.0"

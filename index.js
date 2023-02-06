@@ -3,6 +3,7 @@ const fs = require("fs-extra");
 const Mustache = require("mustache");
 const yaml = require("js-yaml");
 const cheerio = require("cheerio");
+const slugify = require("slugify");
 
 const getDesc = (html) => {
   const $ = cheerio.load(html);
@@ -34,20 +35,19 @@ const build = () => {
   for (const blog of fs
     .readdirSync("content/blogs/")
     .filter((filename) => filename[0] !== "_")) {
-    const content = fs.readFileSync(`content/blogs/${blog}`).toString();
+    const allContent = fs.readFileSync(`content/blogs/${blog}`).toString();
+    const [metadata, content] = allContent
+      .split("---")
+      .slice(1)
+      .map((x) => x.trim());
 
-    const [author, authorLink, date] = content
-      .split("\n")
-      .map((text) => text.slice(3, -1))
-      .slice(0, 3);
+    const { title, author, date } = yaml.load(metadata);
 
-    let parsedContent = marked.parse(content.slice(content.indexOf("#")));
-    const slug = parsedContent.split('id="')[1].split('"')[0];
-    const title = content.split("#")[1].split("\n")[0];
+    let parsedContent = marked.parse(content);
+    const slug = slugify(title, { lower: true, strict: true });
     const description = getDesc(parsedContent);
     const link = config.url + "/" + slug;
-
-    parsedContent = parsedContent.split("</h1>\n")[1];
+    // process.exit(0);
 
     fs.writeFileSync(
       `build/${slug}.html`,
@@ -57,7 +57,6 @@ const build = () => {
         title,
         description,
         author,
-        authorLink,
         date,
         slug,
         link,
