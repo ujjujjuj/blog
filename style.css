@@ -51,7 +51,6 @@ blockquote {
 }
 
 pre {
-  /* background-color: var(--bg-bright); */
   margin: 1rem 0;
 }
 .language-plaintext td:first-child {
