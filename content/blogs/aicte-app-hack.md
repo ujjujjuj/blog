@@ -11,7 +11,7 @@ This app claims to have an _inbuilt AI_ that will assess each institute's happin
 
 > Students will have an opportunity to earn NFTs on the app. Students can redeem these NFTs after 6 months for various goodies and vouchers and even trade them for value.
 
-All of this looks pretty shady. They're every buzzword that exists to market your app. This motivated me to dig deep into what this application actually does, so I decided to download and check it out myself.
+All of this looks pretty shady to me because they're using every buzzword that exists to market their app. This motivated me to dig deep into what this application actually does, so I decided to download and check it out myself.
 
 ## First Look
 
