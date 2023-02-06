@@ -8,6 +8,7 @@
     "serve": "serve ./build"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "fs-extra": "^11.1.0",
     "js-yaml": "^4.1.0",
     "marked": "^4.2.12",

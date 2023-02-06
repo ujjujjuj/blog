@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>{{ title }}</title>
+  <link>{{ link }}</link>
+  <description>{{ description }}</description>
+  {{ #blogs }}
+  <item>
+    <title>{{ title }}</title>
+    <link>{{ link }}</link>
+    <pubDate>{{ date }}</pubDate>
+    <author>{{ author }}</author>
+    <guid>{{ link }}</guid>
+    <description>{{ description }}</description>
+  </item>
+  {{ /blogs }}
+</channel>
+</rss> 

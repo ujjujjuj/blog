@@ -2,6 +2,12 @@ const { marked } = require("marked");
 const fs = require("fs-extra");
 const Mustache = require("mustache");
 const yaml = require("js-yaml");
+const cheerio = require("cheerio");
+
+const getDesc = (html) => {
+  const $ = cheerio.load(html);
+  return $("p").first().text().split("\n")[0];
+};
 
 const build = () => {
   const config = yaml.load(fs.readFileSync("./config.yml"));
@@ -37,8 +43,8 @@ const build = () => {
 
     let parsedContent = marked.parse(content.slice(content.indexOf("#")));
     const slug = parsedContent.split('id="')[1].split('"')[0];
-    const title = parsedContent.split('">')[1].split("</h1>")[0];
-    const description = "";
+    const title = content.split("#")[1].split("\n")[0];
+    const description = getDesc(parsedContent);
 
     parsedContent = parsedContent.split("</h1>\n")[1];
 
@@ -56,7 +62,7 @@ const build = () => {
       })
     );
 
-    blogs.push({ title, author, slug, date });
+    blogs.push({ title, author, slug, date, description });
   }
 
   blogs.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -69,6 +75,19 @@ const build = () => {
       blogs,
     })
   );
+
+  //
+  console.log("Generating RSS feed");
+  const blogXml = blogs.map((blog) => {
+    blog.link = config.url + blog.slug;
+    blog.date = new Date(blog.date).toUTCString();
+    return blog;
+  });
+  const rssXml = Mustache.render(
+    fs.readFileSync(`theme/${config.theme}/feed.xml`).toString(),
+    { ...config, blogs: blogXml }
+  );
+  fs.writeFileSync("build/rss.xml", rssXml);
 
   console.log("Done");
 };
