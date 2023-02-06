@@ -6,6 +6,7 @@
 
 :root {
   --bg: #1a1a28;
+  --bg-bright: #282936;
   --fg1: #ffffffc0;
   --fg-bright: #ffffff;
   --fg-dull: #ffffff80;
@@ -15,6 +16,7 @@
 
 ::selection {
   background: var(--highlight);
+  color: white;
 }
 
 body {
@@ -36,8 +38,32 @@ h1 {
 }
 
 h2 {
-  margin: 0.5rem 0;
+  margin: 2rem 0 0.4rem 0;
   color: var(--fg2);
+}
+
+blockquote {
+  margin: 1rem 0;
+  background-color: var(--bg-bright);
+  padding: 0.8rem;
+  border-left: 4px solid var(--fg2);
+  border-radius: 4px;
+}
+
+pre {
+  /* background-color: var(--bg-bright); */
+  margin: 1rem 0;
+}
+.language-plaintext td:first-child {
+  display: none;
+}
+
+.hljs-ln-line {
+  display: inline-block;
+  margin-right: 0.8rem;
+}
+.hljs-ln-n::before{
+  opacity: 0.25;
 }
 
 hr {
@@ -100,14 +126,15 @@ a {
 .blog-list {
   display: flex;
   flex-direction: column;
+  gap: 0.8rem;
   width: 100%;
 }
 .blog-list > div {
-  margin: 0.4rem 0;
+  display: flex;
+  gap: 0.8rem;
 }
 .blog-list span {
   color: var(--fg-dull);
-  margin-right: 1rem;
 }
 
 footer {
@@ -117,7 +144,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  padding-bottom: 2.4rem;
+  padding-block: 2.4rem;
 }
 
 footer > div {
@@ -125,4 +152,14 @@ footer > div {
   max-width: 800px;
   display: flex;
   justify-content: space-between;
+}
+
+@media all and (max-width: 480px) {
+  .blog-list {
+    gap: 1.2rem;
+  }
+  .blog-list > div {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
 }
