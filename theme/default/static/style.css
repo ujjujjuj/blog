@@ -6,7 +6,8 @@
 
 :root {
   --bg: #1a1a28;
-  --bg-bright: #282936;
+  /* --bg-bright: #282936; */
+  --bg-bright: #22272e;
   --fg1: #ffffffc0;
   --fg-bright: #ffffff;
   --fg-dull: #ffffff80;
