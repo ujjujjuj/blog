@@ -8,10 +8,7 @@
     <meta property="og:title" content="{{ title }}" />
     <meta property="og:description" content="{{ description }}" />
     <meta property="og:type" content="{{ title }}" />
-    <meta
-      property="og:image"
-      content="{{{ url }}}/default.jpg"
-    />
+    <meta property="og:image" content="{{{ url }}}/default.jpg" />
     <meta property="og:url" content="{{{ link }}}" />
     <meta property="og:site_name" content="{{{ owner }}}'s blog" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,14 +19,13 @@
     />
     <title>{{{ title }}}</title>
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <!-- <link
+    <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/dracula.min.css"
-      integrity="sha512-zKpFlhUX8c+WC6H/XTJavnEpWFt2zH9BU9vu0Hry5Y+SEgG21pRMFcecS7DgDXIegXBQ3uK9puwWPP3h6WSR9g=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark-dimmed.min.css"
+      integrity="sha512-zcatBMvxa7rT7dDklfjauWsfiSFParF+hRfCdf4Zr40/MmA1gkFcBRbop0zMpvYF3FmznYFgcL8wlcuO/GwHoA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    /> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark-dimmed.min.css" integrity="sha512-zcatBMvxa7rT7dDklfjauWsfiSFParF+hRfCdf4Zr40/MmA1gkFcBRbop0zMpvYF3FmznYFgcL8wlcuO/GwHoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"
       integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA=="
@@ -37,6 +33,19 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id={{ gtag }}"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "{{ gtag }}");
+    </script>
   </head>
   <body>
     <div id="root">
@@ -48,8 +57,8 @@
       <div class="blog">
         <h1>{{{ title }}}</h1>
         <p class="blog-info">
-          <a href="{{{ author.link }}}" target="_blank">{{ author.name }}</a> on {{
-          date }}
+          <a href="{{{ author.link }}}" target="_blank">{{ author.name }}</a> on
+          {{ date }}
         </p>
         <p>{{{ content }}}</p>
       </div>

@@ -84,7 +84,7 @@ const build = () => {
     return blog;
   });
   const rssXml = Mustache.render(
-    fs.readFileSync(`theme/${config.theme}/feed.xml`).toString(),
+    fs.readFileSync(`theme/${config.theme}/rss.xml`).toString(),
     { ...config, blogs: blogXml }
   );
   fs.writeFileSync("build/rss.xml", rssXml);
