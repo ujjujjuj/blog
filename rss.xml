@@ -4,5 +4,13 @@
   <title>ujjujjuj&#39;s blog</title>
   <link></link>
   <description>Blogs about random tech stuff, will probably add new posts every month.</description>
+  <item>
+    <title>init</title>
+    <link>https:&#x2F;&#x2F;blog.ujwl.in&#x2F;init</link>
+    <pubDate>Thu, 02 Feb 2023 00:00:00 GMT</pubDate>
+    <author>[object Object]</author>
+    <guid>https:&#x2F;&#x2F;blog.ujwl.in&#x2F;init</guid>
+    <description>i&#39;ll probably post technical guides about stuff im learning and other things i find interesting.</description>
+  </item>
 </channel>
 </rss> 
