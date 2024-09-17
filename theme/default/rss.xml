@@ -9,8 +9,8 @@
     <title>{{ title }}</title>
     <link>{{ link }}</link>
     <pubDate>{{ date }}</pubDate>
-    <author>{{ author }}</author>
-    <guid>{{ link }}</guid>
+    <author>{{ author.name }}</author>
+    <guid>{{ title }}</guid>
     <description>{{ description }}</description>
   </item>
   {{ /blogs }}
