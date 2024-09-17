@@ -12,9 +12,9 @@ const getDesc = (html) => {
 }
 
 const build = () => {
-  const config = yaml.load(
-    fs.readFileSync("./config.yml").toString()
-  ) as Config
+  const config = yaml.load(fs.readFileSync("./config.yml").toString()) as Config
+
+  const publicHost = new URL(config.url).host
 
   const homeTemplate = fs
     .readFileSync(`theme/${config.theme}/_index.html`)
@@ -79,6 +79,9 @@ const build = () => {
       blogs,
     })
   )
+
+  // write CNAME
+  fs.writeFileSync("build/CNAME", publicHost)
 
   //
   console.log("Generating RSS feed")
