@@ -6,12 +6,12 @@ import * as cheerio from "cheerio"
 import slugify from "slugify"
 import { Blog, Metadata, type Config } from "./types"
 
-const getDesc = (html) => {
+const getDesc = (html: string) => {
   const $ = cheerio.load(html)
   return $("p").first().text().split("\n")[0]
 }
 
-const build = () => {
+const build = async () => {
   const config = yaml.load(fs.readFileSync("./config.yml").toString()) as Config
 
   const publicHost = new URL(config.url).host
@@ -46,7 +46,7 @@ const build = () => {
 
     const { title, author, date } = yaml.load(metadata) as Metadata
 
-    let parsedContent = marked.parse(content)
+    let parsedContent = await marked.parse(content)
     const slug = slugify(title, { lower: true, strict: true })
     const description = getDesc(parsedContent)
     const link = config.url + "/" + slug

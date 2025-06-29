@@ -1,11 +1,13 @@
 owner: ujjujjuj
 url: https://blog.ujwl.in
 title: ujjujjuj's blog
-description: Blogs about random tech stuff, will probably add new posts every month.
+description: blogs about random tech stuff, will probably add new posts every month.
 theme: default
 links:
   - text: website
     url: https://ujwl.in/
   - text: coffee?
     url: https://www.buymeacoffee.com/ujjujjuj/
+  - text: twitter
+    url: http://x.com/ujjujjuj/
 gtag: G-NB6KYX6J7L
