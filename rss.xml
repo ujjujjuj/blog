@@ -3,11 +3,35 @@
 <channel>
   <title>ujjujjuj&#39;s blog</title>
   <link></link>
-  <description>Blogs about random tech stuff, will probably add new posts every month.</description>
+  <description>blogs about random tech stuff, will probably add new posts every month.</description>
+  <item>
+    <title>Hacking AICTE&#39;s &quot;Happiness App&quot;</title>
+    <link>https:&#x2F;&#x2F;blog.ujwl.in&#x2F;hacking-aictes-happiness-app</link>
+    <pubDate>Sat, 04 Feb 2023 00:00:00 GMT</pubDate>
+    <author>ujjujjuj</author>
+    <guid>Hacking AICTE&#39;s &quot;Happiness App&quot;</guid>
+    <description>A few months back, my college sent every student an email asking us to download an app called YOL - YourOneLife which claims to be approved by AICTE. For those of you who don&#39;t know, AICTE stands for the All India Council for Technical Education. I don&#39;t exactly know what this council does but it comes under the Indian ministry of education so it must be something serious.</description>
+  </item>
+  <item>
+    <title>Creating a DIY drone with an ESP-32 (coming soon)</title>
+    <link>https:&#x2F;&#x2F;blog.ujwl.in&#x2F;creating-a-diy-drone-with-an-esp-32-coming-soon</link>
+    <pubDate>Thu, 02 Feb 2023 00:00:00 GMT</pubDate>
+    <author>ujjujjuj</author>
+    <guid>Creating a DIY drone with an ESP-32 (coming soon)</guid>
+    <description>Coming soon...</description>
+  </item>
+  <item>
+    <title>Game Hacking on Linux (coming soon)</title>
+    <link>https:&#x2F;&#x2F;blog.ujwl.in&#x2F;game-hacking-on-linux-coming-soon</link>
+    <pubDate>Thu, 02 Feb 2023 00:00:00 GMT</pubDate>
+    <author>ujjujjuj</author>
+    <guid>Game Hacking on Linux (coming soon)</guid>
+    <description>Coming soon...</description>
+  </item>
   <item>
     <title>init</title>
     <link>https:&#x2F;&#x2F;blog.ujwl.in&#x2F;init</link>
-    <pubDate>Thu, 02 Feb 2023 00:00:00 GMT</pubDate>
+    <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
     <author>ujjujjuj</author>
     <guid>init</guid>
     <description>i&#39;ll probably post technical guides about stuff im learning and other things i find interesting.</description>

